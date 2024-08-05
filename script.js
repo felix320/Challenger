@@ -61,7 +61,6 @@ function desencriptarTexto(texto) {
         .replace(/ufat/g, "u");
 }
 
-// áéíóú
 // Función para mostrar el resultado en el área de salida
 function mostrarResultado(texto) {
     document.getElementById("presentacion__desaparece").style.display = "none";
