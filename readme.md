@@ -44,7 +44,6 @@ Encriptado
 - La letra "**i**" es convertida a "**imes**".
 - La letra "**o**" es convertida a "**ober**"
 - La letra "**u**" es convertida a "**ufat**"
-
 - La letra "**á**" es convertida a "**ai**".
 - La letra "**é**" es convertida a "**enter**".
 - La letra "**í**" es convertida a "**imes**".
@@ -53,7 +52,6 @@ Encriptado
 
 
 Desencriptado
-
 
 - La letra "**ai**" es convertida a "**a*".
 - La letra "**enter**" es convertida a "**e**".
@@ -103,8 +101,9 @@ Desarrollado con los siguientes lenguajes:
 ---
 
 ![logo](./assets/Flx.png)
+
 ---
 
-[Inicio](#encriptador-de-texto) ⬆ ⬆
+[Inicio](#encriptador-de-texto) ⬆
 
 Creado por **Miraz**.
