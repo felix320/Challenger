@@ -100,7 +100,7 @@ Desarrollado con los siguientes lenguajes:
 
 ---
 
-<!-- .![logo](./assets/Flx.png) -->
+![logo](./assets/Flx.png)
 
 ---
 
