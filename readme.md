@@ -28,10 +28,9 @@
 
 [Extras](#extras)
 
+## Descripción
 
-##  Descripción
 Pagina web que encripta y desencripta texto, encripta un texto y también devolver un texto encriptado a su versión original.
-
 
 ## Llaves de encriptacion
 
@@ -50,7 +49,6 @@ Encriptado
 - La letra "**ó**" es convertida a "**ober**"
 - La letra "**ú**" es convertida a "**ufat**"
 
-
 Desencriptado
 
 - La letra "**ai**" es convertida a "**a*".
@@ -59,35 +57,37 @@ Desencriptado
 - La letra "**ober**" es convertida a "**o**"
 - La letra "**ufat**" es convertida a "**u**"
 
-
 ## Requisitos
 
-- Debe funcionar solo con letras minúsculas.
+- Tan solo funciona con letras minúsculas.
 
-```
+```ejemplo
 Por ejemplo:
+
 "hola mundo" => "hoberlai mufatndober"
 "hoberlai mufatndober" => "hola mundo"
 ```
 
 ## Link del proyecto
 
-[Encriptador de texto](https://felix320.github.io/Challenger/) 
+allowed_elements <a href="https://felix320.github.io/Challenger/" target="_blank">Encriptador de texto</a>
+<!-- [Encriptador de texto](https://felix320.github.io/Challenger/)  -->
 
 ## Lenguajes de programacion
-Desarrollado con los siguientes lenguajes: 
 
-```
+Desarrollado con los siguientes lenguajes:
+
+```lenguaje
 - html,
 - css y 
 - javascript
 ```
 
-
 ## botones
+
 - Encriptado
 - Desencriptado
-- Copiar 
+- Copiar
 - Borrar
 
 ## Extras

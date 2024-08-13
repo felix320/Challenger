@@ -1,6 +1,6 @@
 // Función para verificar si hay texto ingresado
 function verificarTexto() {
-    const texto = document.querySelector('.presentacion__ingreso__texto').value.trim();
+    const texto = document.querySelector('.text-area').value.trim();
     if (texto === "") {
         alert("Por favor, ingresa un texto antes de continuar."); // Mensaje de advertencia
         return false; // Retorna false si no hay texto
@@ -9,56 +9,57 @@ function verificarTexto() {
 }
 
 function borrarTexto() {
-    document.querySelector('.presentacion__ingreso__texto').value = ""; // Limpiar área de entrada
+    document.querySelector('.text-area').value = ""; // Limpiar área de entrada
     condicionesIniciales(); // Restablecer condiciones iniciales
     document.getElementById("presentacion__desaparece").style.display = "block";
     document.getElementById("body").scrollIntoView({ behavior: 'smooth' });
 }
 
-// Función para encriptar el texto ingresado
-function encripta() {
+const textArea = document.querySelector(".text-area");
+const mensaje = document.querySelector(".mensaje");
+
+function btnEncripta() {
     if (!verificarTexto()) return; // Verificar texto antes de continuar
 
-    const textoOriginal = document.querySelector('.presentacion__ingreso__texto').value.toLowerCase();
-    const textoEncriptado = encriptarTexto(textoOriginal);
-    mostrarResultado(textoEncriptado);
+    const textoEncriptado = encriptar(textArea.value);
+    mensaje.value = textoEncriptado;
+    mostrarResultado();
+    textArea.value = "";
     document.getElementById("presentacion__Salida").scrollIntoView({ behavior: 'smooth' });
 }
 
-// Función para desencriptar el texto ingresado
-function desencripta() {
+function btnDesencripta() {
     if (!verificarTexto()) return; // Verificar texto antes de continuar
-
-    const textoEncriptado = document.querySelector('.presentacion__ingreso__texto').value.toLowerCase();
-    const textoDesencriptado = desencriptarTexto(textoEncriptado);
-    mostrarResultado(textoDesencriptado);
+    const textoEncriptado = desencriptar(textArea.value)
+    mensaje.value = textoEncriptado
+    textArea.value = "";
+    mostrarResultado();
     document.getElementById("presentacion__Salida").scrollIntoView({ behavior: 'smooth' });
 }
 
 // Función para encriptar el texto según reglas específicas
-function encriptarTexto(texto) {
-    return texto
-        .replace(/e/g, "enter")
-        .replace(/i/g, "imes")
-        .replace(/a/g, "ai")
-        .replace(/o/g, "ober")
-        .replace(/u/g, "ufat")
+function encriptar(stringEncriptada) {
+    let matrizCodigo = [["e", "enter"], ["i", "imes"], ["a", "ai"], ["o", "ober"], ["u", "ufat"], ["é", "enter"], ["í", "imes"], ["á", "ai"], ["ó", "ober"], ["ú", "ufat"]];
+    stringEncriptada = stringEncriptada.toLowerCase();
 
-        .replace(/é/g, "enter")
-        .replace(/í/g, "imes")
-        .replace(/á/g, "ai")
-        .replace(/ó/g, "ober")
-        .replace(/ú/g, "ufat");
+    for (let i = 0; i < matrizCodigo.length; i++) {
+        if (stringEncriptada.includes(matrizCodigo[i][0])) {
+            stringEncriptada = stringEncriptada.replaceAll(matrizCodigo[i][0], matrizCodigo[i][1])
+        }
+    }
+    return stringEncriptada
 }
 
-// Función para desencriptar el texto según reglas específicas
-function desencriptarTexto(texto) {
-    return texto
-        .replace(/enter/g, "e")
-        .replace(/imes/g, "i")
-        .replace(/ai/g, "a")
-        .replace(/ober/g, "o")
-        .replace(/ufat/g, "u");
+function desencriptar(stringDesencriptada) {
+    let matrizCodigo = [["e", "enter"], ["i", "imes"], ["a", "ai"], ["o", "ober"], ["u", "ufat"]];
+    stringDesencriptada = stringDesencriptada.toLowerCase();
+
+    for (let i = 0; i < matrizCodigo.length; i++) {
+        if (stringDesencriptada.includes(matrizCodigo[i][1])) {
+            stringDesencriptada = stringDesencriptada.replaceAll(matrizCodigo[i][1], matrizCodigo[i][0])
+        }
+    }
+    return stringDesencriptada
 }
 
 // Función para mostrar el resultado en el área de salida
@@ -66,8 +67,6 @@ function mostrarResultado(texto) {
     document.getElementById("presentacion__desaparece").style.display = "none";
     document.getElementById("codificado").style.display = "block";
     document.getElementById("boton_copiar").style.display = "block";
-    const codificado = document.getElementById("codificado");
-    codificado.value = texto;
     ajustarTextarea(codificado);
 }
 
@@ -82,6 +81,7 @@ function copiarTexto() {
     const textoCopiado = document.getElementById("codificado");
     textoCopiado.select(); // Seleccionar el texto
     document.execCommand("copy"); // Copiar el texto seleccionado
+    document.getElementById("body").scrollIntoView({ behavior: 'smooth' });
 }
 
 // Función para establecer las condiciones iniciales de visualización

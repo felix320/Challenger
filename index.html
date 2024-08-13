@@ -4,43 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenger</title>
+    <title>Encriptador</title>
+    <link rel="shortcut icon" href="./assets/Flx.png" type="image/x-icon">
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body id="body">
-    <header></header>
+    <header>
+        <img class="logo" src="./assets/Flx.png" alt="Logo" width="32" />
+    </header>
     <main>
-        <div class="logo">
-            <img src="./assets/Flx.png" width="32" />
-        </div>
-
-        <div class="presentacion__ingreso">
-            <textarea class="presentacion__ingreso__texto" cols="40" rows="11" id="ingreso_texto"
-                placeholder="Ingresa el texto que desees encriptar o desencriptar." name="ingrese texto"></textarea>
-            <label class="presentacion__ingreso_mensaje" for="texto">Solo letras minúsculas y sin acentos</label>
+        <section class="presentacion__ingreso">
+            <textarea class="text-area" cols="40" rows="7" id="ingreso_texto"
+                placeholder="Ingresa el texto que desea encriptar o desencriptar." name="ingrese texto"></textarea>
+            <h6 class="presentacion__ingreso__mensaje" for="texto">❗ Solo letras minúsculas y sin acentos</h6>
             <div class="botones">
-                <button class="container__encriptar" onclick="encripta();">Encriptar</button>
-                <button class="container__desencriptar" onclick="desencripta();">Desencriptar</button>
+                <button class="container__encriptar" onclick="btnEncripta();">Encriptar</button>
+                <button class="container__desencriptar" onclick="btnDesencripta();">Desencriptar</button>
                 <button class="container__borrar" onclick="borrarTexto()">Borrar</button>
             </div>
-        </div>
-        <div class="presentacion__Salida" id="presentacion__Salida">
+        </section>
+        <section class="presentacion__Salida" id="presentacion__Salida">
             <div class="Presentacion__Salida__encriptado">
-                <textarea id="codificado" class="presentacion__salida__texto" readonly></textarea>
+                <textarea id="codificado" class="mensaje" readonly></textarea>
                 <div class="presentacion__desaparece" id="presentacion__desaparece">
                     <img class="presentacion__salida__imagen" src="./assets/Muneco.png" alt="Imagen de muneco">
                     <h1 class="presentacion__salida__titulo">Ningún mensaje fue encontrado</h1>
-                    <!-- <p class="presentacion__salida__parrafo">Ingresa el texto que desees encriptar o desencriptar.</p> -->
                 </div>
             </div>
             <div id="boton_copiar" class="boton__copiar">
                 <button class="container__copiar" onclick="copiarTexto();">Copiar</button>
             </div>
-        </div>
+        </section>
     </main>
-    <footer class="footer">
-        <p>2024 Desarrollado por Miraz</p>
+    <footer>
+        <p class="credito">2024 Desarrollado por Miraz</p>
     </footer>
     <script src="script.js"></script>
 
