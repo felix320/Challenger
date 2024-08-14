@@ -44,8 +44,6 @@ main {
     padding: 0% 3% 0% 5%;
 }
 
-
-
 .presentacion__ingreso {
     width: 55%;
     height: 80%;
@@ -87,7 +85,6 @@ main {
     justify-content: center;
 }
 
-
 .container__encriptar,
 .container__desencriptar,
 .container__copiar,
@@ -111,7 +108,6 @@ main {
     color: var(--color-secundario);
 }
 
-
 .container__desencriptar {
     color: var(--color-secundario);
     background-color: var(--color-terciario);
@@ -131,8 +127,6 @@ main {
 }
 
 /* ======================================================================== */
-
-
 .presentacion__Salida {
     width: 25%;
     height: 90%;
@@ -145,8 +139,6 @@ main {
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
-
-
 
 .Presentacion__Salida__encriptado {
     width: 100%;
@@ -168,7 +160,6 @@ main {
     resize: none;
     max-height: 500px;
 }
-
 
 .presentacion__desaparece {
 
@@ -279,7 +270,6 @@ main {
         height: auto;
         gap: 20px;
     }
-
 
     .Presentacion__Salida__encriptado {
         display: flex;
