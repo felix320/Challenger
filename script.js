@@ -1,3 +1,6 @@
+const textArea = document.querySelector(".text-area");
+const mensaje = document.querySelector(".mensaje");
+
 // Función para verificar si hay texto ingresado
 function verificarTexto() {
     const texto = document.querySelector('.text-area').value.trim();
@@ -8,32 +11,14 @@ function verificarTexto() {
     return true; // Retorna true si hay texto
 }
 
-function borrarTexto() {
-    document.querySelector('.text-area').value = ""; // Limpiar área de entrada
-    condicionesIniciales(); // Restablecer condiciones iniciales
-    document.getElementById("presentacion__desaparece").style.display = "block";
-    document.getElementById("body").scrollIntoView({ behavior: 'smooth' });
-}
-
-const textArea = document.querySelector(".text-area");
-const mensaje = document.querySelector(".mensaje");
-
 function btnEncripta() {
     if (!verificarTexto()) return; // Verificar texto antes de continuar
 
     const textoEncriptado = encriptar(textArea.value);
     mensaje.value = textoEncriptado;
-    mostrarResultado();
+    // mostrarResultado();
     textArea.value = "";
-    document.getElementById("presentacion__Salida").scrollIntoView({ behavior: 'smooth' });
-}
-
-function btnDesencripta() {
-    if (!verificarTexto()) return; // Verificar texto antes de continuar
-    const textoEncriptado = desencriptar(textArea.value)
-    mensaje.value = textoEncriptado
-    textArea.value = "";
-    mostrarResultado();
+    mensaje.style.backgroundImage = "none";
     document.getElementById("presentacion__Salida").scrollIntoView({ behavior: 'smooth' });
 }
 
@@ -50,6 +35,17 @@ function encriptar(stringEncriptada) {
     return stringEncriptada
 }
 
+function btnDesencripta() {
+    if (!verificarTexto()) return; // Verificar texto antes de continuar
+    const textoEncriptado = desencriptar(textArea.value)
+    mensaje.value = textoEncriptado
+    textArea.value = "";
+    mensaje.style.backgroundImage = "none";
+    // mostrarResultado();
+    document.getElementById("presentacion__Salida").scrollIntoView({ behavior: 'smooth' });
+}
+
+// Función para desencriptar el texto según reglas específicas
 function desencriptar(stringDesencriptada) {
     let matrizCodigo = [["e", "enter"], ["i", "imes"], ["a", "ai"], ["o", "ober"], ["u", "ufat"]];
     stringDesencriptada = stringDesencriptada.toLowerCase();
@@ -62,19 +58,27 @@ function desencriptar(stringDesencriptada) {
     return stringDesencriptada
 }
 
-// Función para mostrar el resultado en el área de salida
-function mostrarResultado(texto) {
-    document.getElementById("presentacion__desaparece").style.display = "none";
-    document.getElementById("codificado").style.display = "block";
-    document.getElementById("boton_copiar").style.display = "block";
-    ajustarTextarea(codificado);
+function borrarTexto() {
+    document.querySelector('.text-area').value = ""; // Limpiar área de entrada
+    document.querySelector('.mensaje').value = ""; 
+    mensaje.style.backgroundImage = "block";
+    condicionesIniciales(); // Restablecer condiciones iniciales
+    document.getElementById("presentacion__desaparece").style.display = "block";
+    document.getElementById("body").scrollIntoView({ behavior: 'smooth' });
 }
+// // Función para mostrar el resultado en el área de salida
+// function mostrarResultado(texto) {
+//     document.getElementById("presentacion__desaparece").style.display = "none";
+//     document.getElementById("codificado").style.display = "block";
+//     document.getElementById("boton_copiar").style.display = "block";
+//     ajustarTextarea(codificado);
+// }
 
-// Función para ajustar la altura del área de texto dinámicamente
-function ajustarTextarea(textarea) {
-    textarea.style.height = 'auto'; // Reiniciar altura
-    textarea.style.height = textarea.scrollHeight + 'px'; // Ajustar a la altura del contenido
-}
+// // Función para ajustar la altura del área de texto dinámicamente
+// function ajustarTextarea(textarea) {
+//     textarea.style.height = 'auto'; // Reiniciar altura
+//     textarea.style.height = textarea.scrollHeight + 'px'; // Ajustar a la altura del contenido
+// }
 
 // Función para copiar el texto del área de salida al portapapeles
 function copiarTexto() {
@@ -84,11 +88,11 @@ function copiarTexto() {
     document.getElementById("body").scrollIntoView({ behavior: 'smooth' });
 }
 
-// Función para establecer las condiciones iniciales de visualización
-function condicionesIniciales() {
-    document.getElementById("codificado").style.display = "none"; // Ocultar área de salida
-    document.getElementById("boton_copiar").style.display = "none"; // Ocultar botón de copiar
-}
+// // Función para establecer las condiciones iniciales de visualización
+// function condicionesIniciales() {
+//     document.getElementById("codificado").style.display = "none"; // Ocultar área de salida
+//     document.getElementById("boton_copiar").style.display = "none"; // Ocultar botón de copiar
+// }
 
-// Inicializar condiciones al cargar la página
-condicionesIniciales();
+// // Inicializar condiciones al cargar la página
+// condicionesIniciales();

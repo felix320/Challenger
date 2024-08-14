@@ -9,30 +9,25 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 
-<body id="body">
+<body>
     <header>
         <img class="logo" src="./assets/Flx.png" alt="Logo" width="32" />
     </header>
     <main>
-        <section class="presentacion__ingreso">
-            <textarea class="text-area" cols="40" rows="7" id="ingreso_texto"
-                placeholder="Ingresa el texto que desea encriptar o desencriptar." name="ingrese texto"></textarea>
-            <h6 class="presentacion__ingreso__mensaje" for="texto">❗ Solo letras minúsculas y sin acentos</h6>
+        <section>
+            <textarea class="text-area" placeholder="Ingresa el texto que desea encriptar o desencriptar."></textarea>
+            <div>
+                <h6 class="presentacion__ingreso__mensaje" for="texto">❗ Solo letras minúsculas y sin acentos</h6>
+            </div>
             <div class="botones">
                 <button class="container__encriptar" onclick="btnEncripta();">Encriptar</button>
                 <button class="container__desencriptar" onclick="btnDesencripta();">Desencriptar</button>
                 <button class="container__borrar" onclick="borrarTexto()">Borrar</button>
             </div>
         </section>
-        <section class="presentacion__Salida" id="presentacion__Salida">
-            <div class="Presentacion__Salida__encriptado">
-                <textarea id="codificado" class="mensaje" readonly></textarea>
-                <div class="presentacion__desaparece" id="presentacion__desaparece">
-                    <img class="presentacion__salida__imagen" src="./assets/Muneco.png" alt="Imagen de muneco">
-                    <h1 class="presentacion__salida__titulo">Ningún mensaje fue encontrado</h1>
-                </div>
-            </div>
-            <div id="boton_copiar" class="boton__copiar">
+        <section>
+            <textarea id="codificado" class="mensaje" cols="20" rows="8" readonly></textarea>
+            <div>
                 <button class="container__copiar" onclick="copiarTexto();">Copiar</button>
             </div>
         </section>

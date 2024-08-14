@@ -70,7 +70,7 @@ Por ejemplo:
 
 ## Link del proyecto
 
-allowed_elements <a href="https://felix320.github.io/Challenger/" target="_blank">Encriptador de texto</a>
+<a href="https://felix320.github.io/Challenger/" target="_blank">Encriptador de texto</a>
 <!-- [Encriptador de texto](https://felix320.github.io/Challenger/)  -->
 
 ## Lenguajes de programacion
@@ -104,6 +104,6 @@ Desarrollado con los siguientes lenguajes:
 
 ---
 
-[Inicio](#encriptador-de-texto) ⬆
+[Inicio ⬆](#encriptador-de-texto)
 
 Creado por **Miraz**.
