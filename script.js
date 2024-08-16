@@ -5,15 +5,35 @@ const mensaje = document.querySelector(".mensaje");
 function verificarTexto() {
     const texto = document.querySelector('.text-area').value.trim();
     if (texto === "") {
-        alert("Por favor, ingresa un texto antes de continuar."); // Mensaje de advertencia
+        alert("Por favor, ingresa un texto" + des + " antes de continuar."); // Mensaje de advertencia
+        return false; // Retorna false si no hay texto
+    }
+    return true; // Retorna true si hay texto
+}
+
+// Función para verificar si hay texto ingresado
+function verificarMensaje() {
+    const mensaje = document.querySelector('.mensaje').value.trim();
+    if (mensaje === "") {
+        alert("No se encontró ningún texto para borrar."); // Mensaje de advertencia
+        return false; // Retorna false si no hay texto
+    }
+    return true; // Retorna true si hay texto
+}
+
+// Función para verificar si hay texto ingresado
+function verificarBorrado() {
+    const texto = document.querySelector('.text-area').value.trim();
+    if (texto === "") {
+        alert("Por favor, ingresa un texto encriptado antes de continuar."); // Mensaje de advertencia
         return false; // Retorna false si no hay texto
     }
     return true; // Retorna true si hay texto
 }
 
 function btnEncripta() {
+    des = "";
     if (!verificarTexto()) return; // Verificar texto antes de continuar
-
     const textoEncriptado = encriptar(textArea.value);
     mensaje.value = textoEncriptado;
     mostrarResultado();
@@ -35,6 +55,7 @@ function encriptar(stringEncriptada) {
 }
 
 function btnDesencripta() {
+    des = " encriptado";
     if (!verificarTexto()) return; // Verificar texto antes de continuar
     const textoEncriptado = desencriptar(textArea.value)
     mensaje.value = textoEncriptado
@@ -70,7 +91,10 @@ function mostrarResultado(texto) {
 }
 
 function borrarTexto() {
+
+    if (!verificarMensaje()) return; // Verificar texto antes de continuar
     document.querySelector('.text-area').value = ""; // Limpiar área de entrada
+    document.querySelector('.mensaje').value = ""; // Limpiar área de entrada
     condicionesIniciales(); // Restablecer condiciones iniciales
     document.getElementById("presentacion__desaparece").style.display = "block";
     document.getElementById("body").scrollIntoView({ behavior: 'smooth' });
